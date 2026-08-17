@@ -165,6 +165,8 @@ span.pre {
 div.sphinxsidebar {
     display: flex;
     width: min(25vw, 350px);
+    flex-shrink: 0;
+    margin: 0;
     float: none;
     position: sticky;
     top: 0;
@@ -182,7 +184,12 @@ div.sphinxsidebar h4 {
 }
 
 div.bodywrapper {
-    margin-inline-start: min(25vw, 350px);
+    margin-inline-start: 0;
+}
+
+div.documentwrapper {
+    flex: 1;
+    min-width: 0;
 }
 
 div.sphinxsidebarwrapper {
@@ -236,6 +243,10 @@ div.sphinxsidebar input[type='text'] {
 
 div.body {
     padding: 0 0 0 1.2em;
+}
+
+html[dir='rtl'] div.body {
+    padding: 0 1.2em 0 0;
 }
 
 div.body p, div.body dd, div.body li, div.body blockquote {
