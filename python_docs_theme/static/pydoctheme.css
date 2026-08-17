@@ -9,7 +9,7 @@
 }
 @font-face {
     font-family: 'Vazirmatn';
-    src: url('../fonts/Vazirmatn[wght].woff2') format('woff2');
+    src: url('fonts/Vazirmatn[wght].woff2') format('woff2');
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -22,13 +22,6 @@ html[dir='rtl'] .menu {
     font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
                  'segoe ui', 'helvetica neue', helvetica, Cantarell, Ubuntu, roboto,
                  noto, arial, sans-serif;
-}
-
-/* Keep code blocks LTR and in the monospace stack — don't let Vazirmatn leak in */
-html[dir='rtl'] tt,
-html[dir='rtl'] code,
-html[dir='rtl'] pre {
-    font-family: Menlo, Consolas, Monaco, 'Liberation Mono', 'Lucida Console', monospace;
 }
 
 /* unset some styles from the classic stylesheet */
@@ -153,6 +146,7 @@ form.inline-search input[type='submit'] {
 
 div.document {
     display: flex;
+    flex-direction: row;
     /* Don't let long code literals extend beyond the right side of the screen */
     overflow-wrap: break-word;
 }
@@ -167,6 +161,7 @@ div.sphinxsidebar {
     width: min(25vw, 350px);
     flex-shrink: 0;
     margin: 0;
+    order: 0;
     float: none;
     position: sticky;
     top: 0;
@@ -190,6 +185,7 @@ div.bodywrapper {
 div.documentwrapper {
     flex: 1;
     min-width: 0;
+    order: 1;
 }
 
 div.sphinxsidebarwrapper {
@@ -247,6 +243,7 @@ div.body {
 
 html[dir='rtl'] div.body {
     padding: 0 1.2em 0 0;
+    direction: rtl;
 }
 
 div.body p, div.body dd, div.body li, div.body blockquote {
@@ -513,11 +510,11 @@ dl > dt span ~ em,
 }
 
 .toctree-wrapper ul {
-    padding-left: 20px;
+    padding-inline-start: 20px;
 }
 
 .theme-selector {
-    margin-left: .5em;
+    margin-inline-start: .5em;
 }
 
 div.genindex-jumpbox,
