@@ -80,6 +80,12 @@
             <script type="text/javascript" src="{{ pathto('_static/themetoggle.js', 1) }}"></script>
         {%- endif -%}
     {%- endif -%}
+    {%- if theme_is_rtl|lower == "true" %}
+    <script>
+        document.documentElement.dir = 'rtl';
+        document.documentElement.lang = '{{ language }}';
+    </script>
+    {%- endif %}
     {{ super() }}
 {%- endblock -%}
 
