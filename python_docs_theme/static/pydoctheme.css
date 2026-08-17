@@ -7,6 +7,29 @@
     --bad-color: rgb(159 49 51);
     --bad-border: rgb(244, 76, 78);
 }
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('../fonts/Vazirmatn[wght].woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Apply Vazirmatn only when the page is RTL */
+html[dir='rtl'] body,
+html[dir='rtl'] div.sphinxsidebar,
+html[dir='rtl'] .menu {
+    font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
+                 'segoe ui', 'helvetica neue', helvetica, Cantarell, Ubuntu, roboto,
+                 noto, arial, sans-serif;
+}
+
+/* Keep code blocks LTR and in the monospace stack — don't let Vazirmatn leak in */
+html[dir='rtl'] tt,
+html[dir='rtl'] code,
+html[dir='rtl'] pre {
+    font-family: Menlo, Consolas, Monaco, 'Liberation Mono', 'Lucida Console', monospace;
+}
 
 /* unset some styles from the classic stylesheet */
 div.document,
