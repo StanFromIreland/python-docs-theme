@@ -133,6 +133,19 @@ div.related ul::after {
     display: block;
 }
 
+html[dir='rtl'] div.related ul {
+    padding: 0 10px 0 0;
+}
+
+html[dir='rtl'] div.related ul li.right {
+    float: left;
+}
+
+html[dir='rtl'] div.related ul li {
+    float: right;
+    padding-inline: 0.3em;
+}
+
 .inline-search,
 form.inline-search input {
     display: inline;
@@ -631,6 +644,9 @@ div.genindex-jumpbox a {
         padding: .25rem;
         align-items: stretch;
     }
+    html[dir='rtl'] .nav-items-wrapper {
+        flex-direction: row-reverse;
+    }
     .nav-logo {
         margin-inline-end: 1rem;
         flex-shrink: 0;
@@ -658,6 +674,10 @@ div.genindex-jumpbox a {
         width: 100%;
         flex: 1;
     }
+    html[dir='rtl'] .nav-content .search input[type=search] {
+        padding-inline-start: 4px;
+        padding-inline-end: 24px;
+    }
     .nav-content .search input[type=submit] {
         height: 100%;
         box-shadow: none;
@@ -671,6 +691,10 @@ div.genindex-jumpbox a {
         align-self: center;
         padding-inline-start: 4px;
     }
+    html[dir='rtl'] .nav-content .search svg {
+        padding-inline-start: 0;
+        padding-inline-end: 4px;
+    }
     .toggler__input {
         display: none;
     }
@@ -682,6 +706,9 @@ div.genindex-jumpbox a {
         justify-content: center;
         padding: 8px;
         flex-shrink: 0;
+    }
+    html[dir='rtl'] .toggler__label {
+        order: 1;
     }
     .toggler__label:hover, .toggler__label:focus {
         background-color: rgba(127 127 127 / 50%);
