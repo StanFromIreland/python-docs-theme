@@ -18,6 +18,7 @@ THEME_PATH = Path(__file__).resolve().parent
 LOCALE_DIR = THEME_PATH / "locale"
 MESSAGE_CATALOG_NAME = "python-docs-theme"
 
+
 def _tobool(val: object) -> bool:
     if isinstance(val, str):
         return val.lower() in {"true", "1", "yes", "on"}
