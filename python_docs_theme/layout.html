@@ -6,7 +6,7 @@
       <h3>{{ _('Navigation') }}</h3>
       <ul>
           {%- for rellink in rellinks %}
-          <li class="right" {% if loop.first %}style="margin-right: 10px"{% endif %}>
+          <li class="right" {% if loop.first %}style="margin-inline-end: 10px"{% endif %}>
               <a href="{{ pathto(rellink[0])|e }}" title="{{ rellink[1]|striptags|e }}"
                  {{ accesskey(rellink[2]) }}>{{ rellink[3] }}
               </a>
@@ -80,12 +80,6 @@
             <script type="text/javascript" src="{{ pathto('_static/themetoggle.js', 1) }}"></script>
         {%- endif -%}
     {%- endif -%}
-    {%- if theme_is_rtl|lower == "true" %}
-    <script>
-        document.documentElement.dir = 'rtl';
-        document.documentElement.lang = '{{ language }}';
-    </script>
-    {%- endif %}
     {{ super() }}
 {%- endblock -%}
 

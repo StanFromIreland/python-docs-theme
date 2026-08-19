@@ -117,17 +117,15 @@ div.related ul::after {
     display: block;
 }
 
-html[dir='rtl'] div.related ul {
-    padding: 0 10px 0 0;
+div.related ul {
+    padding: 0;
+    padding-inline-start: 10px;
 }
 
 html[dir='rtl'] div.related ul li.right {
     float: left;
-}
-
-html[dir='rtl'] div.related ul li {
-    float: right;
-    padding-inline: 0.3em;
+    margin-right: 0;
+    margin-left: 5px;
 }
 
 .inline-search,
@@ -175,8 +173,8 @@ div.sphinxsidebar h4 {
     margin-top: 1.5em;
 }
 
-div.bodywrapper {
-    margin-inline-start: 0;
+div.document div.bodywrapper {
+    margin: 0;
 }
 
 div.documentwrapper {
@@ -200,6 +198,11 @@ div.sphinxsidebarwrapper > h3:first-child {
 
 div.sphinxsidebarwrapper > ul > li > ul > li {
     margin-bottom: 0.4em;
+}
+
+div.sphinxsidebar ul ul {
+    margin-left: 0;
+    margin-inline-start: 20px;
 }
 
 div.sphinxsidebar a:hover {
@@ -227,7 +230,7 @@ div.sphinxsidebar input[type='text'] {
     min-width: 12px;
     border-start-end-radius: 5px;
     border-end-end-radius: 5px;
-    border-inline-start: none;
+    border-left: none;
 }
 
 #sidebarbutton:hover {
@@ -235,11 +238,10 @@ div.sphinxsidebar input[type='text'] {
 }
 
 div.body {
-    padding: 0 0 0 1.2em;
+    padding-inline-start: 1.2em;
 }
 
 html[dir='rtl'] div.body {
-    padding: 0 1.2em 0 0;
     direction: rtl;
 }
 
@@ -254,6 +256,10 @@ div.body h1, div.body h2, div.body h3, div.body h4, div.body h5, div.body h6 {
 }
 div.body dl.field-list > dt {
     line-height: 1.6;
+    padding-left: 0;
+    padding-right: 0;
+    padding-inline-start: 0.5em;
+    padding-inline-end: 5px;
 }
 
 div.body hr {
@@ -262,8 +268,14 @@ div.body hr {
     height: 1px;
 }
 
-div.body pre, div.body code, div.highlight {
+pre,
+code,
+div.highlight,
+dl > dt span ~ em,
+.sig,
+.sig-param {
     direction: ltr;
+    unicode-bidi: isolate;
 }
 
 div.body pre {
@@ -508,11 +520,6 @@ div.footer a:hover {
 }
 
 
-dl > dt span ~ em,
-.sig {
-    font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
-}
-
 .toctree-wrapper ul {
     padding-inline-start: 20px;
 }
@@ -635,9 +642,6 @@ div.genindex-jumpbox a {
         padding: .25rem;
         align-items: stretch;
     }
-    html[dir='rtl'] .nav-items-wrapper {
-        flex-direction: row-reverse;
-    }
     .nav-logo {
         margin-inline-end: 1rem;
         flex-shrink: 0;
@@ -661,13 +665,9 @@ div.genindex-jumpbox a {
     }
     .nav-content .search input[type=search] {
         border: 0;
-        padding-inline-start: 24px; /* was: padding-left */
+        padding-inline-start: 24px;
         width: 100%;
         flex: 1;
-    }
-    html[dir='rtl'] .nav-content .search input[type=search] {
-        padding-inline-start: 4px;
-        padding-inline-end: 24px;
     }
     .nav-content .search input[type=submit] {
         height: 100%;
@@ -680,11 +680,7 @@ div.genindex-jumpbox a {
     .nav-content .search svg {
         position: absolute;
         align-self: center;
-        padding-inline-start: 4px;
-    }
-    html[dir='rtl'] .nav-content .search svg {
-        padding-inline-start: 0;
-        padding-inline-end: 4px;
+        inset-inline-start: 4px;
     }
     .toggler__input {
         display: none;
@@ -697,9 +693,6 @@ div.genindex-jumpbox a {
         justify-content: center;
         padding: 8px;
         flex-shrink: 0;
-    }
-    html[dir='rtl'] .toggler__label {
-        order: 1;
     }
     .toggler__label:hover, .toggler__label:focus {
         background-color: rgba(127 127 127 / 50%);
@@ -740,7 +733,7 @@ div.genindex-jumpbox a {
     }
     .toggler__input:checked ~ .menu-wrapper {
         visibility: visible;
-        inset-inline-start: 0; /* was: left: 0 */
+        transform: translateX(0);
     }
 
     /* Sliding side menu */
@@ -748,8 +741,9 @@ div.genindex-jumpbox a {
         display: block;
         position: fixed;
         top: 0;
-        transition: inset-inline-start 400ms ease;
-        inset-inline-start: -310px;
+        inset-inline-start: 0;
+        transition: transform 400ms ease;
+        transform: translateX(-100%);
         width: 300px;
         height: 100%;
         background-color: #eee;
@@ -757,12 +751,18 @@ div.genindex-jumpbox a {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         overflow-y: auto;
     }
+    html[dir='rtl'] .menu-wrapper {
+        transform: translateX(100%);
+    }
     .menu-wrapper.open {
         visibility: visible;
-        inset-inline-start: 0;
+        transform: translateX(0);
     }
     .menu {
-        padding: 40px 10px 30px 20px;
+        padding-block-start: 40px;
+        padding-inline-end: 10px;
+        padding-block-end: 30px;
+        padding-inline-start: 20px;
     }
     .menu-wrapper h3,
     .menu-wrapper h4 {
