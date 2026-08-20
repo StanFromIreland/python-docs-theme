@@ -122,7 +122,7 @@ div.related ul {
     padding-inline-start: 10px;
 }
 
-html[dir='rtl'] div.related ul li.right {
+body[dir='rtl'] div.related ul li.right {
     float: left;
     margin-right: 0;
     margin-left: 5px;
@@ -240,7 +240,7 @@ div.body {
     padding-inline-start: 1.2em;
 }
 
-html[dir='rtl'] div.body {
+body[dir='rtl'] div.body {
     direction: rtl;
 }
 
@@ -755,7 +755,7 @@ div.genindex-jumpbox a {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         overflow-y: auto;
     }
-    html[dir='rtl'] .menu-wrapper {
+    body[dir='rtl'] .menu-wrapper {
         transform: translateX(100%);
     }
     .menu-wrapper.open {
