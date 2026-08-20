@@ -89,7 +89,7 @@
 {%- endblock -%}
 
 {%- block body_tag %}
-{{ super() }}
+<body{% if theme_is_rtl|tobool %} dir="rtl"{% endif %}>
 {%- if builder != 'htmlhelp' %}
 <div class="mobile-nav">
     <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
