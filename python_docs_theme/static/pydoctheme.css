@@ -141,7 +141,6 @@ form.inline-search input[type='submit'] {
 
 div.document {
     display: flex;
-    flex-direction: row;
     /* Don't let long code literals extend beyond the right side of the screen */
     overflow-wrap: break-word;
 }
@@ -228,8 +227,7 @@ div.sphinxsidebar input[type='text'] {
     align-items: center;
     width: 12px;
     min-width: 12px;
-    border-start-end-radius: 5px;
-    border-end-end-radius: 5px;
+    border-radius: 0 5px 5px 0;
     border-left: none;
 }
 
@@ -238,6 +236,7 @@ div.sphinxsidebar input[type='text'] {
 }
 
 div.body {
+    padding: 0;
     padding-inline-start: 1.2em;
 }
 
@@ -266,6 +265,11 @@ div.body hr {
     border: 0;
     background-color: #ccc;
     height: 1px;
+}
+
+dl > dt span ~ em,
+.sig {
+    font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 }
 
 pre,
@@ -459,9 +463,9 @@ table.footnote td {
 
 div.footer {
     line-height: 150%;
-    text-align: end; /* was: text-align: right */
+    text-align: end;
     width: auto;
-    margin-inline-end: 10px; /* was: margin-right */
+    margin-inline-end: 10px;
 }
 
 div.footer a {
