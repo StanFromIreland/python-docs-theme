@@ -307,10 +307,12 @@ div.code-block-caption {
     padding: 0.3em 0.6em;
     font-size: 90%;
     color: #333;
+
     & + div pre {
         border-top-left-radius: 0 !important;
         border-top-right-radius: 0 !important;
     }
+
     & + div .copybutton {
         border-top-right-radius: 0 !important;
     }
@@ -522,6 +524,7 @@ div.footer a:hover {
 .threadsafety.threadsafety-atomic {
     color: var(--threadsafety-atomic);
 }
+
 
 
 .toctree-wrapper ul {
